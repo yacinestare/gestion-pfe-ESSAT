@@ -1,0 +1,462 @@
+<openerp>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="gestion__pfe.list">
+      <field name="name">gestion_PFE list</field>
+      <field name="model">gestion__pfe.gestion__pfe</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="gestion__pfe.action_window">
+      <field name="name">gestion_PFE window</field>
+      <field name="res_model">gestion__pfe.gestion__pfe</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="gestion__pfe.action_server">
+      <field name="name">gestion_PFE server</field>
+      <field name="model_id" ref="model_gestion__pfe_gestion__pfe"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="gestion_PFE" id="gestion__pfe.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="gestion__pfe.menu_1" parent="gestion__pfe.menu_root"/>
+    <menuitem name="Menu 2" id="gestion__pfe.menu_2" parent="gestion__pfe.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="gestion__pfe.menu_1_list" parent="gestion__pfe.menu_1"
+              action="gestion__pfe.action_window"/>
+    <menuitem name="Server to list" id="gestion__pfe" parent="gestion__pfe.menu_2"
+              action="gestion__pfe.action_server"/>
+    -->
+
+     <record model="ir.ui.view" id="vue1">
+      <field name="name">vue1 list</field>
+      <field name="model">etudiant</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom_etu"/>
+          <field name="prenom_etu"/>
+          <field name="date_naiss"/>
+          <field name="num"/>
+          <field name="encadrant_id"/>
+          <field name="pfe_id"/>
+          <field name="soutenance_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="vue12">
+       <field name="name">vue1 list</field>
+       <field name="model">etudiant</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+                <field name="image" widget="image" class="etudiant"/>
+              <group>
+            <field name="nom_etu"/>
+            <field name="prenom_etu"/>
+            <field name="date_naiss"/>
+            <field name="num"/>
+                <field name="encadrant_id"/>
+                <field name="pfe_id"/>
+                <field name="soutenance_id"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+
+    <record model="ir.ui.view" id="vue2">
+      <field name="name">vue2 list</field>
+      <field name="model">encadrant</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom_enc"/>
+          <field name="prenom_enc"/>
+          <field name="num"/>
+          <field name="etudiant_ids"/>
+          <field name="pfe_id"/>
+          <field name="soutenance_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="vue13">
+       <field name="name">vue2 list</field>
+       <field name="model">encadrant</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+                <field name="image" widget="image" class="encadrant"/>
+              <group>
+            <field name="nom_enc"/>
+            <field name="prenom_enc"/>
+            <field name="num"/>
+                <field name="etudiant_ids"/>
+                <field name="pfe_id"/>
+                <field name="soutenance_id"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+
+    <record model="ir.ui.view" id="vue3">
+      <field name="name">vue3 list</field>
+      <field name="model">jury</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom_ju"/>
+          <field name="prenom_ju"/>
+          <field name="num"/>
+          <field name="evaluation_ids"/>
+          <field name="soutenance_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="vue14">
+       <field name="name">vue3 list</field>
+       <field name="model">jury</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+              <field name="image" widget="image" class="jury"/>
+              <group>
+            <field name="nom_ju"/>
+            <field name="prenom_ju"/>
+            <field name="num"/>
+                <field name="evaluation_ids"/>
+                <field name="soutenance_id"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+    <record model="ir.ui.view" id="vue4">
+      <field name="name">vue4 list</field>
+      <field name="model">scolarite</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom_em"/>
+          <field name="prenom_em"/>
+          <field name="pfe_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="vue15">
+       <field name="name">vue4 list</field>
+       <field name="model">scolarite</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+              <group>
+            <field name="nom_em"/>
+            <field name="prenom_em"/>
+                <field name="pfe_id"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+    <record model="ir.ui.view" id="vue5">
+      <field name="name">vue5 list</field>
+      <field name="model">pfe</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="titre"/>
+          <field name="dat_debut"/>
+          <field name="dat_depot"/>
+          <field name="etudiant_ids"/>
+          <field name="encadrant_id"/>
+          <field name="scolarite_ids"/>
+          <field name="soutenance_id"/>
+          <field name="evaluation_ids"/>
+          <field name="entreprise_ids"/>
+          <field name="branche_ids"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="vue16">
+       <field name="name">vue5 list</field>
+       <field name="model">pfe</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+              <group>
+            <field name="titre"/>
+            <field name="dat_debut"/>
+            <field name="dat_depot"/>
+            <field name="pdf" widget="pdf" class="pfe"/>
+                <field name="etudiant_ids"/>
+                <field name="encadrant_id"/>
+                <field name="scolarite_ids"/>
+                <field name="soutenance_id"/>
+                <field name="evaluation_ids"/>
+                <field name="entreprise_ids"/>
+                <field name="branche_ids"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+    <record model="ir.ui.view" id="vue6">
+      <field name="name">vue6 list</field>
+      <field name="model">soutenance</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date_sout"/>
+          <field name="heur_debut"/>
+          <field name="heur_fin"/>
+          <field name="etudiant_ids"/>
+          <field name="encadrant_id"/>
+          <field name="pfe_id"/>
+          <field name="jury_ids"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="vue17">
+       <field name="name">vue6 list</field>
+       <field name="model">soutenance</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+              <group>
+            <field name="date_sout"/>
+            <field name="heur_debut"/>
+            <field name="heur_fin"/>
+                <field name="etudiant_ids"/>
+                <field name="encadrant_id"/>
+                <field name="pfe_id"/>
+                <field name="jury_ids"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+
+    <record model="ir.ui.view" id="vue7">
+      <field name="name">vue7 list</field>
+      <field name="model">evaluation</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="note_eva"/>
+          <field name="commentaire"/>
+          <field name="pfe_id"/>
+          <field name="jury_ids"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="vue18">
+       <field name="name">vue7 list</field>
+       <field name="model">evaluation</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+              <group>
+            <field name="note_eva"/>
+            <field name="commentaire"/>
+                <field name="pfe_id"/>
+                <field name="jury_ids"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+
+    <record model="ir.ui.view" id="vue8">
+      <field name="name">vue8 list</field>
+      <field name="model">entreprise</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom_ent"/>
+          <field name="lieu"/>
+          <field name="nom_resp"/>
+          <field name="num_tel"/>
+          <field name="pfe_id"/>
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="vue19">
+       <field name="name">vue8 list</field>
+       <field name="model">entreprise</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+                <field name="image" widget="image" class="entreprise"/>
+              <group>
+            <field name="nom_ent"/>
+            <field name="lieu"/>
+            <field name="nom_resp"/>
+            <field name="num_tel"/>
+                <field name="pfe_id"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+      <record model="ir.ui.view" id="vue9">
+      <field name="name">vue9 list</field>
+      <field name="model">branche</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="specialite"/>
+          <field name="promo"/>
+          <field name="pfe_id"/>
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="vue20">
+       <field name="name">vue9 list</field>
+       <field name="model">branche</field>
+       <field name="arch" type="xml">
+         <form>
+            <sheet>
+                <field name="image" widget="image" class="branche"/>
+              <group>
+            <field name="specialite"/>
+            <field name="promo"/>
+                <field name="pfe_id"/>
+              </group>
+            </sheet>
+         </form>
+       </field>
+      </record>
+
+
+
+
+
+
+
+      <record model="ir.actions.act_window" id="action1">
+      <field name="name">Ajouter un etudiant</field>
+      <field name="res_model">etudiant</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <record model="ir.actions.act_window" id="action2">
+      <field name="name">Ajouter un encadrant</field>
+      <field name="res_model">encadrant</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <record model="ir.actions.act_window" id="action3">
+      <field name="name">Ajouter un jurey</field>
+      <field name="res_model">jury</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <record model="ir.actions.act_window" id="action4">
+      <field name="name">Ajouter un resultats</field>
+      <field name="res_model">scolarite</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+      <record model="ir.actions.act_window" id="action5">
+      <field name="name">Ajouter un pfe</field>
+      <field name="res_model">pfe</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <record model="ir.actions.act_window" id="action6">
+      <field name="name">Ajouter une soutenance</field>
+      <field name="res_model">soutenance</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <record model="ir.actions.act_window" id="action7">
+      <field name="name">Ajouter une evaluation</field>
+      <field name="res_model">evaluation</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+      <record model="ir.actions.act_window" id="action8">
+      <field name="name">Ajouter une entreprise</field>
+      <field name="res_model">entreprise</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+      <record model="ir.actions.act_window" id="action9">
+      <field name="name">Ajouter une branche</field>
+      <field name="res_model">branche</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+     <menuitem name="gestionpfe" id="gestionpfe_menu"/>
+     <menuitem name="etudiant" id="etudiant_menu" parent="gestionpfe_menu"
+              action="action1"/>
+     <menuitem name="encadrant" id="encadrant_menu" parent="gestionpfe_menu"
+              action="action2"/>
+     <menuitem name="jury" id="jury_menu" parent="gestionpfe_menu"
+              action="action3"/>
+     <menuitem name="scolarite" id="scolarite_menu" parent="gestionpfe_menu"
+              action="action4"/>
+     <menuitem name="pfe" id="pfe_menu" parent="gestionpfe_menu"
+              action="action5"/>
+     <menuitem name="sountenance" id="soutenance_menu" parent="gestionpfe_menu"
+              action="action6"/>
+     <menuitem name="evaluation" id="evaluation_menu" parent="gestionpfe_menu"
+              action="action7"/>
+     <menuitem name="entreprise" id="entreprise_menu" parent="gestionpfe_menu"
+              action="action8"/>
+      <menuitem name="branche" id="branche_menu" parent="gestionpfe_menu"
+              action="action9"/>
+  </data>
+</openerp>
